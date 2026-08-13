@@ -4,37 +4,47 @@ public class media {
     public static void main(String[] args) {
         Scanner rd = new Scanner(System.in);
 
-        int nota1=0;
-        int nota2=0;
+        float nota1 = 0;
+        float nota2 = 0;
 
-        try {
-            while (true) {
-                System.out.printf("Insira a 1° nota: ");
-                nota1 = rd.nextInt();
+        while (true) {
+            try {
+                System.out.print("Insira a 1° nota: ");
+                nota1 = rd.nextFloat();
+
                 if (nota1 >= 1 && nota1 <= 10) {
                     break;
-                } else {
-                    System.out.println("\nponha um valor entre 1 e 10");
                 }
-            }
 
-            while (true) {
-                System.out.printf("Insira a 2° nota: ");
-                nota2 = rd.nextInt();
+                System.out.println("Ponha um valor entre 1 e 10");
+
+            } catch (Exception e) {
+                System.out.println("Insira um valor válido. Ex: 1 - 10");
+                rd.nextLine();
+            }
+        }
+
+        while (true) {
+            try {
+                System.out.print("Insira a 2° nota: ");
+                nota2 = rd.nextFloat();
+
                 if (nota2 >= 1 && nota2 <= 10) {
                     break;
-                } else {
-                    System.out.println("\nponha um valor entre 1 e 10");
                 }
+
+                System.out.println("Ponha um valor entre 1 e 10");
+
+            } catch (Exception e) {
+                System.out.println("Insira um valor válido. Ex: 1 - 10");
+                rd.nextLine();
             }
-
-        } catch (Exception e) {
-            System.out.println("Insira um valor valido\nex. 1 - 10");
         }
-        
-        double media = (nota1+nota2)/2.0 ;
 
-        System.out.printf("a média aritmética é: %2.f%\n" , media);
+        double media = (nota1 + nota2) / 2.0;
+
+        System.out.printf("A média aritmética é: %.2f%n", media);
+
         rd.close();
     }
 }
